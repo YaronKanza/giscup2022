@@ -1,0 +1,171 @@
+<html>
+    <head profile="http://www.w3.org/1999/xhtml/vocab">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>ACM SIGSPATIAL GIS Cup 2022</title>
+        <link type="text/css" rel="stylesheet" href="files/style.css" media="all" />
+        
+    <body class="html front not-logged-in no-sidebars page-node page-node- page-node-1 node-type-page footer-columns" >
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+
+        <div id="skip-link">
+            <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+        </div>
+        <div id="page-wrapper"><div id="page">
+
+                <div id="header" class="without-secondary-menu"><div class="section clearfix">
+
+                        <a href="https://sigspatial2022.sigspatial.org" title="Home" rel="home" id="logo">
+                            <img src="files/sigspatial_logo_small_120.png" alt="Home" />
+                        </a>
+
+                        <div id="name-and-slogan">
+
+                            <div id="site-name">
+                                <strong>
+                                    <a href="" title="Home" rel="home"><span>ACM SIGSPATIAL Cup 2022</span></a>
+                                </strong>
+                            </div>
+
+
+                        </div> <!-- /#name-and-slogan -->
+
+
+                        <div id="main-menu" class="navigation">
+                            <h2 class="element-invisible">Main menu</h2>
+                            
+                            <ul id="main-menu-links" class="links clearfix">
+                                <li class="menu-700 active-trail first  active"><a href="giscup.html" class="">Home</a></li>
+                                <li class="menu-322"><a href="results.html" class="">Results</a></li>
+                                <li class="menu-322"><a href="problem.html" class="">Problem Definition</a></li>
+                                <li class="menu-322"><a href="download.html" class="">Downloads</a></li>
+                                <li class="menu-322"><a href="submit.html" class="active-trail active">Submission and Evaluation</a></li>
+                                <li class="menu-322"><a href="organizer.html" class="">Organizing Committee</a></li>
+                            </ul>      </div> <!-- /#main-menu -->
+
+
+                    </div></div> <!-- /.section, /#header -->
+
+
+
+                <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+
+
+
+                        <div id="content" class="column"><div class="section">
+                                <a id="main-content"></a>
+                                <h1 class="title" id="page-title">
+                                    Submission and Evaluation        </h1>
+                                <div class="tabs">
+                                </div>
+                                <div class="region region-content">
+                                    <div id="block-system-main" class="block block-system">
+
+
+                                        <div class="content">
+                                            <div id="node-1" class="node node-page node-promoted node-full clearfix" about="/giscup/home" typeof="foaf:Document">
+
+
+
+                                                <div class="content clearfix">
+                                                    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+	<h1 id="submission">Submission</h1>
+	<p>
+	The  participants shall submit their programs in Python (<tt>classify.py</tt>) , which can be called with filename for the input LAZ file, 
+    and an output filename for writing the program results into that file. 
+    The output should be a json file containing polygons and polylines, as illustrated in <a href="files/output.json">output.json</a>.
+    You should only use standard Python libraries and you should specify the libraries you are using in your README file. 
+    You may use machine learning tools, including PyTourch and Tensorflow. For example,</p> 
+    <p>
+    <tt>$$ classify.py input.laz output.json</tt> </p>
+    <p>
+    will apply classify.py to the input file input.laz, and the output will be written to output.json.
+	</p>
+
+
+	<h2 id="submission-portal">Submission</h2>
+	<p>Participants shall submit their solution as a single .zip file via EasyChair:</p>
+	<p><a href="https://easychair.org/conferences/?conf=giscup22" class="uri">https://easychair.org/conferences/?conf=giscup22</a></p>
+	<p>The submission must contain:</p>
+	<ul>
+     <li>
+     	The Python source code.
+     </li>
+
+     <li>
+     	 <em>README.txt</em> file that containing information on all the packages you have used and how to execute the code.
+     </li>
+
+     <li>
+     	A <em>contact.txt</em> file containing the names and email addresses of all the team members.
+     </li>
+	</ul>
+
+
+	<h2 id="evaluation-system">Evaluation Procedure</h2>
+	<p>The evaluation will be by comparing the computed list of polygons/polylines to 
+        a ground truth labeled by humans based on areal images.</p>
+    <p>Suppose that \(O\) is the output set of polygons and \(G\) is the set of polygons in the ground truth.
+        The Jaccard coefficient  of each two polygons is the ratio of their intersection to their union. 
+        It is 1 for two polygons that are precisely matching and it is close to 0 for two polygons 
+        whose area of intersection is tiny in comparison to the union of their areas. Let \(J(P_1, P_2)\) denote the 
+        Jaccard coefficient of two given polygons. Then we apply the following computation:
+        <ul>
+            <li><span>\(S\leftarrow \emptyset, n\leftarrow 0\)</span></li>
+            <li> For each polygon \(P_1\in G\)</li>
+                <ul>
+                    <li>For each polygon \(P_2\in O\)</li>
+                    <ul>
+                        <li>If \(P_1\cap P_2\neq \emptyset\)</li> 
+                        <ul>
+                            <li><span>\(S \leftarrow S + J(P_1, P_2)\)</span></li>
+                            <li>break</li>
+                        </ul>
+                    </ul>
+                    <li>\(n\leftarrow n+1\)</li>
+                </ul>
+                <li> return <span>\(S/n\)</span></li>
+        </ul> 
+    </p>
+   <p>This computed the average of the Jaccard coefficient for the polygons in the ground truth and the polygons that intersect them.
+       If a polygon in the ground truth is not covered by any polygon in \(O\) it is like adding a value of 0 to the sum.
+       If a polygon in the ground truth is covered by several small polygons, one of them will be selected randomly but the Jaccard coefficient in this case will be smaller than in the case of an exact match.
+   </p>
+    
+   <p>An evaluation code in Python is available via the following link: <a href="files/eval-poly.py">eval.py</a>.</p>
+
+   <p>For line segments, the evaluation will be by finding for each line in the ground truth the closest line in the submission file and computing the avarage of all these distances.</p>
+
+
+	
+</body>
+</html>
+                                                            </div></div></div>  </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div></div> <!-- /.section, /#content -->
+
+
+                    </div></div> <!-- /#main, /#main-wrapper -->
+
+
+                
+
+            </div></div> <!-- /#page, /#page-wrapper -->
+    </body>
+</html>
